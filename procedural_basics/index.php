@@ -6,11 +6,17 @@ echo nl2br("Hello World\n");
 // print "Hello World";
 
 // defining vars
-
 $y = 1;
 $x = $y; // assign by reference
 $z = &$y; // assign by refence
 
 $y = 2;
 
-echo "\$x $x, \$y $y \$z $z";
+echo nl2br("\$x $x, \$y $y \$z $z\n");
+
+// Constants
+define('MYCONSTANT', 'nochange');
+
+// to check if a constant exists use defined()
+
+echo MYCONSTANT;
