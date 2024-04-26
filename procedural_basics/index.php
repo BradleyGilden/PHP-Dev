@@ -58,4 +58,6 @@ var_dump($companies);
 echo '<br />';
 echo "arr size: ", sizeof($companies);
 
-########################### FLOATING POINT NUMBERS #############################
+########################### Operators ######################################
+
+// same as js with including: <=> (checks equality \w comparison) and <> (equiv to !=)
