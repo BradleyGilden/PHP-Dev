@@ -6,6 +6,7 @@
     <title>my PHP journey</title>
 </head>
 <body>
+    <?= include('./nav.php') ?>
     <h1>Using PHP in html</h1>
     <br/>
     <p>
