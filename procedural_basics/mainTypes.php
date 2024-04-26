@@ -61,4 +61,42 @@ Text;
 
 echo nl2br($text);
 
+echo '<pre>';
 print_r(str_split("hey"));
+echo '</pre>';
+
+echo '################################## ARRAYS ######################################<br />';
+
+$arr = [1, 2, 'hey', 'bye', 3.5];
+
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
+
+// maps
+
+echo '<pre>';
+print_r(array_map(function($item) { return is_string($item) ? 'string' : 'not string'; }, $arr));
+echo '</pre>';
+
+$arrobj = [
+    1,
+    2,
+    3,
+    'domains' => [
+        'top' => ['.com', '.net', '.tech', '.uk', '.co.za', '.xyz', '.me', '.tv'],
+        'sub' => ['www', 'mail', 'blog', 'help']
+    ],
+    'versions' => [
+        ['version' => 3.9, 'releaseDate' => new DateTime('2024-04-27')],
+        ['version' => 1.4, 'releaseDate' => new DateTime('2021-11-03')]
+    ]
+];
+
+unset($arrobj[2]);
+
+
+
+echo '<pre>';
+print_r($arrobj);
+echo '</pre>';
