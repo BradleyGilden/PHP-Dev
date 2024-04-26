@@ -49,11 +49,16 @@ echo nl2br($text);
 
 // heredoc - equivalent to multi-line single quote
 
+// n.b string methods start with str, array methods start with array
+
 $text = <<<'Text'
 
 Line 1 $xstring
 Line 2 $ystring
 Line 3 $zstring
+
 Text;
 
 echo nl2br($text);
+
+print_r(str_split("hey"));
