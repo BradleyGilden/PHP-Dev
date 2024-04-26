@@ -16,5 +16,13 @@
             echo 'or we can establish robust implementations'
         ?>
     </p>
+    <?= $mylist = ['apples', 'grapes', 'tissues', 'bleach'] ?>
+
+    <ul>
+        <?php foreach ($mylist as $item):
+            echo "<li>$item</li>";
+        endforeach;?>
+        
+    </ul>
 </body>
 </html>
