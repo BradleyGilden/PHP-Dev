@@ -11,3 +11,8 @@ pprint($transaction);
 pprint($transaction2);
 
 pprint(['ids' => [$transaction->getId(), $transaction2->getId()]]);
+
+// mehtod chaining
+$transaction->setAmount(30.5)->addTax();
+
+pprint($transaction);

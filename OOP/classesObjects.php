@@ -22,4 +22,15 @@ class Transaction {
     public static function objCount(): int {
         return self::$cid;
     }
+
+    // return reference to object for method chaining
+    public function setAmount($amount): self {
+        $this->amount = $amount;
+        return $this;
+    }
+
+    public function addTax($percent=0.14): self {
+        $this->amount += $percent * $this->amount;
+        return $this;
+    }
 }
