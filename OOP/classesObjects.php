@@ -15,6 +15,11 @@ class Transaction {
         $this->description = $description;
     }
 
+    public function __destruct()
+    {
+        echo "$this->id says good bye<br />";
+    }
+
     public function getId(): int {
         return $this->id;
     }
