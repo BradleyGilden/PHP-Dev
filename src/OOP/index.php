@@ -1,6 +1,6 @@
 <?php
 
-use function Utils\pprint;
+use function utils\pprint;
 require_once('./classesObjects.php');
 
 $transaction = new Transaction(15.0, 'for uber');
