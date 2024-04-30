@@ -1,0 +1,17 @@
+{
+    "name": "comascript/php-dev",
+    "description": "practicing php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Comascript\\PhpDev\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "BradleyGilden",
+            "email": "bradleygilden@gmail.com"
+        }
+    ],
+    "require": {}
+}
