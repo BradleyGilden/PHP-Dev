@@ -3,7 +3,7 @@
 namespace App\OOP;
 
 class Transaction {
-    private static int $cid = 0;
+    protected static int $cid = 0;
     private int $id;
     private float $amount;
     private string $description;
