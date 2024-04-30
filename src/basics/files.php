@@ -1,7 +1,6 @@
 <?php
 
 require_once 'utils.php';
-use function Utils\pprint;
 
 // calculates filesize if file exists
 function fsize($filename): void {

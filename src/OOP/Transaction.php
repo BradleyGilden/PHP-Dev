@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+namespace App\OOP;
 
 class Transaction {
     private static int $cid = 0;

@@ -1,7 +1,9 @@
 <?php
 
-use function utils\pprint;
-require_once('./classesObjects.php');
+require '../../vendor/autoload.php';
+
+require_once('../basics/utils.php');
+use App\OOP\Transaction;
 
 $transaction = new Transaction(15.0, 'for uber');
 $transaction2 = new Transaction(65.43, 'Hairstylest');

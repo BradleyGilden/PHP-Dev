@@ -1,8 +1,5 @@
 <?php
 
-namespace utils;
-
-class Utils
 function pprint($data): void {
     echo "<pre>";
     print_r($data);
