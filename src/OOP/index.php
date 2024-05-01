@@ -1,8 +1,8 @@
 <?php
 
 require '../../vendor/autoload.php';
-
 require_once('../basics/utils.php');
+
 use App\OOP\{Transaction, Receipt};
 
 $transaction = new Transaction(15.0, 'for uber');
