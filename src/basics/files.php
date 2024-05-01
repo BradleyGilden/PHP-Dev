@@ -2,6 +2,12 @@
 
 require_once 'utils.php';
 
+/**
+ * Calculates size of filename
+ * @param string $filename
+ * @return void
+ */
+
 // calculates filesize if file exists
 function fsize($filename): void {
     if (file_exists($filename)) echo filesize($filename), ' b<br />';
