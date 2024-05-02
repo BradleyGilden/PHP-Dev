@@ -38,6 +38,7 @@
     <?= include('./form.php') ?>
 
     <?php
+    // use $_REQUEST for either one, or cookie data
     if (isset($_POST['name'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
