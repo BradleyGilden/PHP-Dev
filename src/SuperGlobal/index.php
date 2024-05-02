@@ -24,4 +24,5 @@ $router->register(
     }
 );
 
+// REQEUST_URI is the URI entered in the browser
 $router->resolve($_SERVER['REQUEST_URI']);
