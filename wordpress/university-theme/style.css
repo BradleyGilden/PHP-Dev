@@ -3,3 +3,14 @@
   Author: Bradley Gilden
   Version: 1.0
  */
+
+html, body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#dash-link {
+  position: absolute;
+  right: 10px;
+}
