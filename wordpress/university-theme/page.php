@@ -25,6 +25,7 @@
       </div>
       <?php } ?>
 
+      <!-- links get styled differently depending on which page it is on using .current_page_item class, which is a built in class -->
       <?php $absolute_parent = $parent_id ? $parent_id : get_the_ID() ?>
       <div class="page-links">
         <h2 class="page-links__title"><a href="<?php echo get_permalink($absolute_parent) ?>"><?php echo get_the_title($absolute_parent); ?></a></h2>
