@@ -34,10 +34,10 @@
           ?> -->
           <ul>
             <li <?php highlight_current('about-us') ?>><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
-            <li><a href="#">Programs</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Campuses</a></li>
-            <li><a href="#">Blog</a></li>
+            <li <?php highlight_current('programs') ?>><a href="#">Programs</a></li>
+            <li <?php highlight_current('events') ?>><a href="#">Events</a></li>
+            <li <?php highlight_current('campuses') ?>><a href="#">Campuses</a></li>
+            <li <?php highlight_current('blog') ?>><a href="#">Blog</a></li>
           </ul>
         </nav>
         <div class="site-header__util">
