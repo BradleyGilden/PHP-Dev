@@ -1,4 +1,9 @@
 <!-- use get_header() to include header in a page globally -->
+<?php
+  require_once('helper.php');
+?>
+
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -19,8 +24,16 @@
       <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
       <div class="site-header__menu group">
         <nav class="main-navigation">
+          <!-- dynamic menu -->
+          <!-- <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'headerMenuLocation'
+              )
+            );
+          ?> -->
           <ul>
-            <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
+            <li <?php highlight_current('about-us') ?>><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
             <li><a href="#">Programs</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Campuses</a></li>
