@@ -37,7 +37,7 @@
             <li <?php highlight_current('programs') ?>><a href="#">Programs</a></li>
             <li <?php highlight_current('events') ?>><a href="#">Events</a></li>
             <li <?php highlight_current('campuses') ?>><a href="#">Campuses</a></li>
-            <li <?php highlight_current('blog') ?>><a href="#">Blog</a></li>
+            <li <?php highlight_current('blog') ?>><a href="<?php echo site_url('/blog') ?>">Blog</a></li>
           </ul>
         </nav>
         <div class="site-header__util">
