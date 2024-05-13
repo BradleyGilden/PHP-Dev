@@ -18,8 +18,20 @@
         register_nav_menu('footerLocationTwo', 'Footer Location Two');
     }
 
+    // function uni_post_types() {
+    //     register_post_type('event', array(
+    //         'public' => true,
+    //         'labels' => array(
+    //             'name' => 'Events'
+    //         ),
+    //         'menu_icon' => 'dashicons-calendar'
+    //     ));
+    // }
+
     // wp_enqueue_scripts for loading static files
     add_action('wp_enqueue_scripts', 'uni_resources');
 
     add_action('after_setup_theme', 'uni_features');
+
+    // add_action('init', 'uni_post_types');
 ?>
