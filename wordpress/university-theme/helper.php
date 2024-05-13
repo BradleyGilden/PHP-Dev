@@ -1,5 +1,5 @@
 <?php
-  function highlight_current(string $page_name) {
+  function highlight_current(string $page_name): void {
     // global post
     global $post;
     $current_page_id = $post->ID;
@@ -8,8 +8,6 @@
     // if page name is current page or if id of page is a parent of the current page
 
     if ($page && ($page->ID === wp_get_post_parent_id(0) or $page->ID === $current_page_id)) {
-      return true;
+      echo 'class="current-menu-item"';
     }
-
-    return false;
   }

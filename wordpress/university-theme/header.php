@@ -33,10 +33,10 @@
             );
           ?> -->
           <ul>
-            <li <?php if (highlight_current('about-us')) echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
-            <li <?php if (highlight_current('programs')) echo 'class="current-menu-item"'; ?>><a href="#">Programs</a></li>
-            <li <?php if (highlight_current('events')) echo 'class="current-menu-item"'; ?>><a href="#">Events</a></li>
-            <li <?php if (highlight_current('campuses')) echo 'class="current-menu-item"'; ?>><a href="#">Campuses</a></li>
+            <li <?php if (highlight_current('about-us')); ?>><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
+            <li <?php if (highlight_current('programs')); ?>><a href="#">Programs</a></li>
+            <li <?php if (highlight_current('events')); ?>><a href="#">Events</a></li>
+            <li <?php if (highlight_current('campuses')); ?>><a href="#">Campuses</a></li>
             <li <?php if (get_post_type() === 'post') echo 'class="current-menu-item"'; ?>><a href="<?php echo site_url('/blog') ?>">Blog</a></li>
           </ul>
         </nav>
