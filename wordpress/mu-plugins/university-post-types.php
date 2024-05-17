@@ -3,7 +3,7 @@
 function uni_post_types() {
   register_post_type('event', array(
     'show_in_rest' => true,      // show modern editor
-    'supports' => array('title', 'editor', 'excerpt'),
+    'supports' => array('title', 'editor', 'excerpt', 'custom-fields'),
     'rewrite' => array('slug' => 'event'), 
     'has_archive' => 'events',
     'public' => true,
