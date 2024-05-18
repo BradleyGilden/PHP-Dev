@@ -22,6 +22,18 @@
       <div class="generic-content">
           <p><?= the_content() ?></p>
       </div>
+      <?php
+      // get all related programs for this event
+      $related_programs = get_field('related_program');
+
+      echo '<hr class="section-break" />';
+      echo '<h2 class="headline headline--medium">Related Program(s)</h2>';
+      echo '<ul class="link-list min-list">';
+      foreach($related_programs as $program) { ?>
+      <li><a href=<?php echo get_the_permalink($program) ?>><?php echo get_the_title($program) ?></a></li>
+      <?php } 
+      echo '</ul>'
+      ?>
     </div>
     <?php
     get_footer();

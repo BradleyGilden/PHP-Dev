@@ -37,6 +37,14 @@
 
 
     function uni_query_mod($query) {
+        // Modify Program Query
+        if (!is_admin() && is_post_type_archive('program') && $query->is_main_query()) {
+            $query->set('orderby', 'title');
+            $query->set('order', 'ASC');
+            $query->set('posts_per_page', -1);
+        }
+
+        // Modify Event Query
         if (!is_admin() && is_post_type_archive('event') && $query->is_main_query()) {
             $query->set('meta_key', 'event_date');
             $query->set('orderby', 'meta_value');
