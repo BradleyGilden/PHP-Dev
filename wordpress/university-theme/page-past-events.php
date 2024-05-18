@@ -1,21 +1,37 @@
-<!-- Create an archive for custom blog feeds when searching author or category -->
+<!-- Create an archive for past events -->
 
 <?php get_header(); ?>
 <div class="page-banner">
   <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>)">
   </div>
   <div class="page-banner__content container container--narrow">
-    <h1 class="page-banner__title">All Events</h1>
+    <h1 class="page-banner__title">Past Events</h1>
     <div class="page-banner__intro">
-      <p>See what is going on in our world</p>
+      <p>recap of past events</p>
     </div>
   </div>
 </div>
 
 <div class="container container--narrow page-section">
   <?php
-  while (have_posts()) {
-    the_post(); ?>
+  $past_events = new WP_Query(array(
+    'paged' => get_query_var('paged', 1),
+    'posts_per_page' => 1,
+    'post_type' => 'event',
+    'meta_key' => 'event_date',
+    'orderby' => 'meta_value',
+    'order' => 'ASC',
+    'meta_query' => array(
+      array(
+        'key' => 'event_date',
+        'value' => '2024-07-19', // hypothetically this date has been already passed
+        'compare' => '<',
+        'type' => 'DATE'
+      )
+    )
+  ));
+  while ($past_events->have_posts()) {
+    $past_events->the_post(); ?>
       <div class="event-summary">
         <?php
           $event_date = new DateTime(get_field('event_date'));
@@ -29,10 +45,12 @@
           <p><?php echo wp_trim_words(get_the_content(), 18); ?> <a href=<?php the_permalink(); ?> class="nu gray">Read more</a></p>
         </div>
       </div>
-    <?php } ?>
-
-    <hr class="section-break"/>
-
-    <p>Looking for a recap of our past events? <a href=<?php echo site_url('/past-events') ?>>Check out our past events archive</a></p>
+    <?php }
+    echo paginate_links(array(
+      'total' => $past_events->max_num_pages,
+      'prev_text' => __('« Prev'),
+      'next_text' => __('Next »')
+    ));
+    ?>
 </div>
 <?php get_footer(); ?>

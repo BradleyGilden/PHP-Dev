@@ -34,4 +34,23 @@
     add_action('after_setup_theme', 'uni_features');
 
     // add_action('init', 'uni_post_types');
+
+
+    function uni_query_mod($query) {
+        if (!is_admin() && is_post_type_archive('event') && $query->is_main_query()) {
+            $query->set('meta_key', 'event_date');
+            $query->set('orderby', 'meta_value');
+            $query->set('order', 'ASC');
+            $query->set('meta_query', array(
+                array(
+                    'key' => 'event_date',
+                    'value' => '2024-07-19', // hypothetically this date has been already passed
+                    'compare' => '>=',
+                    'type' => 'DATE'
+                )
+            ));
+        }
+    }
+
+    add_action('pre_get_posts', 'uni_query_mod');
 ?>

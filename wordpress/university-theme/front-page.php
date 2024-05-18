@@ -16,9 +16,21 @@
     <div class="full-width-split__inner">
       <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
       <?php
+      // custom home page query for events
         $home_events = new WP_Query(array(
           'posts_per_page' => 2,
-          'post_type' => 'event'
+          'post_type' => 'event',
+          'meta_key' => 'event_date',
+          'orderby' => 'meta_value',
+          'order' => 'ASC',
+          'meta_query' => array(
+            array(
+              'key' => 'event_date',
+              'value' => '2024-07-19', // hypothetically this date has been already passed
+              'compare' => '>=',
+              'type' => 'DATE'
+            )
+          )
         ));
         while ($home_events->have_posts()) {
           $home_events->the_post();
