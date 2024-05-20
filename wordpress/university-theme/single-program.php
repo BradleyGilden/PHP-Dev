@@ -43,6 +43,10 @@
             )
           )
         ));
+        if ($home_events->have_posts()) {
+          echo '<hr class="section-break" />';
+          echo '<h2 class="headline headline--medium">Upcoming ' . get_the_title() . ' Events</h2>';
+        }
         while ($home_events->have_posts()) {
           $home_events->the_post();
       ?>
