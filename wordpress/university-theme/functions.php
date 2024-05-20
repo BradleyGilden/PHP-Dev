@@ -12,10 +12,13 @@
     function uni_features() {
         // adds page title to tab name
         add_theme_support('title-tag');
+        add_theme_support('post-thumbnails');
+        add_image_size('professor-landscape', 400, 260, true);
+        add_image_size('professor-portrait', 480, 650, true);
         // register nav menu location with wordpress
-        register_nav_menu('headerMenuLocation', 'Header Menu Location');
-        register_nav_menu('footerLocationOne', 'Footer Location One');
-        register_nav_menu('footerLocationTwo', 'Footer Location Two');
+        // register_nav_menu('headerMenuLocation', 'Header Menu Location');
+        // register_nav_menu('footerLocationOne', 'Footer Location One');
+        // register_nav_menu('footerLocationTwo', 'Footer Location Two');
     }
 
     // function uni_post_types() {

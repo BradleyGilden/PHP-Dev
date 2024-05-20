@@ -42,7 +42,7 @@ function uni_post_types() {
   // Custom Post Tye: Professor
   register_post_type('professor', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor'),
+    'supports' => array('title', 'editor', 'thumbnail'),
     'public' => true,
     'labels' => array(
       'name' => 'Professors',
