@@ -38,6 +38,23 @@ function uni_post_types() {
     ),
     'menu_icon' => 'dashicons-awards'
   ));
+
+  // Custom Post Tye: Professor
+  register_post_type('professor', array(
+    'show_in_rest' => true,
+    'supports' => array('title', 'editor'),
+    'public' => true,
+    'labels' => array(
+      'name' => 'Professors',
+      'add_new' => 'Add New Professor',
+      'add_new_item' => 'Add New Professor',
+      'edit_item' => 'Edit Professor',
+      'all_items' => 'All Professors',
+      'singular_name' => 'Professor',
+      'new_item' => 'New Professor'
+    ),
+    'menu_icon' => 'dashicons-welcome-learn-more'
+  ));
 }
 
 add_action('init', 'uni_post_types');
