@@ -1,5 +1,4 @@
 <?php
-require_once('helper.php');
 get_header();
 while (have_posts()) :
   the_post();

@@ -1,4 +1,5 @@
 <?php
+    require_once get_template_directory() . '/helper.php';
 
     function uni_resources() {
         // loads static resources

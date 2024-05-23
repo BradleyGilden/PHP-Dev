@@ -1,9 +1,4 @@
 <!-- use get_header() to include header in a page globally -->
-<?php
-  require_once('helper.php');
-?>
-
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
