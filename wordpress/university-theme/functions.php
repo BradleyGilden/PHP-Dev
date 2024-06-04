@@ -42,6 +42,7 @@
     // add_action('init', 'uni_post_types');
 
 
+    // this custom function is used to modify queries for the custom event type archives
     function uni_query_mod($query) {
         // Modify Program Query
         if (!is_admin() && is_post_type_archive('program') && $query->is_main_query()) {
