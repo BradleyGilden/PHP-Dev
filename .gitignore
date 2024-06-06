@@ -3,3 +3,5 @@
 **/*.png
 **/*.jpg
 **/node_modules
+**/build
+**/css
