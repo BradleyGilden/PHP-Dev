@@ -3,6 +3,15 @@ const $ = window.jQuery;
 const search = () => {
   let isOpen = false;
   let typingTimer;
+  // condition to manage the loading animation
+  let isTyping = false;
+
+  const getSearchResults = () => {
+    console.log("woah");
+    $("#search-overlay__results").html("Imagine rendered results...");
+    isTyping = false;
+  }
+
   // display search field
   $(".js-search-trigger").on("click", () => {
     $(".search-overlay").toggleClass("search-overlay--active");
@@ -28,10 +37,15 @@ const search = () => {
     }
   })
 
-  // typing
-  $("#search-term").on("input", (event) => {
+  // typing delay
+  $("#search-term").on("input", () => {
+    // clear previous delay
+    if (!isTyping) {
+      $("#search-overlay__results").html('<div class="spinner-loader"></div>');
+      isTyping = true;
+    }
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(() => { console.log("Word Typed") }, 1000);
+    typingTimer = setTimeout(getSearchResults, 1000);
   })
 };
 
