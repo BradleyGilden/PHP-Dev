@@ -24,7 +24,7 @@ const search = () => {
       $(".search-overlay").removeClass("search-overlay--active");
       $("body").removeClass("body-no-scroll");
       isOpen = false;
-    } else if(event.keyCode === 83 && !isOpen) {
+    } else if(event.keyCode === 83 && !isOpen && !("input, textarea").is(":focus")) {
       $(".search-overlay").addClass("search-overlay--active");
       $("body").addClass("body-no-scroll");
       isOpen = true;
