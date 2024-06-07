@@ -119,7 +119,7 @@ class Search {
   }
   events() {
     this.openButton.on("click", this.openOverlay.bind(this));
-    this.openButton.on("click", this.closeOverlay.bind(this));
+    this.closeButton.on("click", this.closeOverlay.bind(this));
   }
   openOverlay() {
     this.searchOverlay.addClass("search-overaly--active");
