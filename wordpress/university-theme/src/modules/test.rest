@@ -1,4 +1,4 @@
-GET http://localhost/wp-json/wp/v2/posts?search=biology
+GET http://localhost/wp-json/wp/v2/posts
 Content-Type: application/json
 
 ###

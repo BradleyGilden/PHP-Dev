@@ -7,14 +7,20 @@ const search = () => {
   let isSpinning = false;
 
   const getSearchResults = () => {
-    $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts`, { search: $("#search-term").val() }, (posts) => {
+    $.when (
+      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts`, { search: $("#search-term").val() }),
+      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages`, { search: $("#search-term").val() })
+    ).then((posts, pages) => {
+      const results = [...posts[0], ...pages[0]];
       $("#search-overlay__results").html(`
         <h2 class="search-overlay__section-title">General Information</h2>
-        ${posts.length ? '<ul class="link-list min-list">' : '<p>No general information matches search query</p>' }
-          ${posts.map((post) => `<li><a href="${post.link}">${post.title.rendered}</a></li>`).join(' ')}
-        ${posts.length ? '</ul>' : ''}
+        ${results.length ? '<ul class="link-list min-list">' : '<p>No general information matches search query</p>' }
+          ${results.map((post) => `<li><a href="${post.link}">${post.title.rendered}</a></li>`).join(' ')}
+        ${results.length ? '</ul>' : ''}
       `);
       isSpinning = false;
+    }).catch((_err) => {
+      $("#search-overlay__results").html('<p>Unexpected Error Occured</p>');
     });
   }
 
