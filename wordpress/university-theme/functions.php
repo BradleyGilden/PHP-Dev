@@ -10,6 +10,10 @@
         wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
         wp_enqueue_style('main_styles', get_theme_file_uri('/build/style-index.css'));
         wp_enqueue_style('extra_styles', get_theme_file_uri('/build/index.css'));
+
+        wp_localize_script('main_script', 'universityData', array(
+            'root_url' => get_site_url()
+        ));
     }
 
     function uni_features() {

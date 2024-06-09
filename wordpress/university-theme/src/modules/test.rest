@@ -1,0 +1,12 @@
+GET http://localhost/wp-json/wp/v2/posts?search=biology
+Content-Type: application/json
+
+###
+
+GET http://localhost/wp-json/wp/v2/posts?per_page=3&page=2
+Content-Type: application/json
+
+###
+
+GET http://localhost/wp-json/wp/v2/professor?_fields=id,title,_links,_embedded&_embed=wp:featuredmedia
+Content-Type: application/json
