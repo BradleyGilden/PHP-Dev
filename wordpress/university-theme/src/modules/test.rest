@@ -1,4 +1,4 @@
-GET http://localhost/wp-json/wp/v2/posts
+GET http://localhost/wp-json/university/v1/search?term=lorem
 Content-Type: application/json
 
 ###

@@ -1,5 +1,6 @@
 <?php
     require_once get_template_directory() . '/helper.php';
+    require_once get_template_directory() . '/search-route.php';
 
     function uni_resources() {
         // loads static resources
@@ -73,4 +74,14 @@
     }
 
     add_action('pre_get_posts', 'uni_query_mod');
+
+
+    function custom_api_fields() {
+        // (post type, field name, ...)
+        register_rest_field('post', 'author_name', array(
+            'get_callback' => function () { return get_the_author(); } // function that returns value for field
+        ));
+    }
+
+    add_action('rest_api_init', 'custom_api_fields');
 ?>

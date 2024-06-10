@@ -8,14 +8,14 @@ const search = () => {
 
   const getSearchResults = () => {
     $.when (
-      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts`, { search: $("#search-term").val() }),
-      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages`, { search: $("#search-term").val() })
+      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts`, { search: $("#search-term").val(), _fields: 'link,title,author_name,type' }),
+      $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages`, { search: $("#search-term").val(), _fields: 'link,title,type' })
     ).then((posts, pages) => {
       const results = [...posts[0], ...pages[0]];
       $("#search-overlay__results").html(`
         <h2 class="search-overlay__section-title">General Information</h2>
         ${results.length ? '<ul class="link-list min-list">' : '<p>No general information matches search query</p>' }
-          ${results.map((post) => `<li><a href="${post.link}">${post.title.rendered}</a></li>`).join(' ')}
+          ${results.map((post) => `<li><a href="${post.link}">${post.title.rendered}</a>${post.type=='post' ? ` by ${post.author_name}`: ''}</li>`).join(' ')}
         ${results.length ? '</ul>' : ''}
       `);
       isSpinning = false;
