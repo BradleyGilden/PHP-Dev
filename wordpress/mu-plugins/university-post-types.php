@@ -3,6 +3,8 @@
 function uni_post_types() {
   // Custom Post Type: Event
   register_post_type('event', array(
+    'capability_type' => 'event', // create new capability permissions for post type
+    'map_meta_cap' => true, // automatically map the right capabilities
     'show_in_rest' => true,
     'supports' => array('title', 'editor', 'excerpt', 'custom-fields'),
     'rewrite' => array('slug' => 'event'), 
