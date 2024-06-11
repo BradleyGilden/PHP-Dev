@@ -32,6 +32,23 @@ function university_search_results($data) {
         'authorName' => get_the_author()
       ));
     }
+    elseif ($post_type === 'professor') {
+      array_push($results['professors'], array(
+        'title' => get_the_title(),
+        'permalink' => get_the_permalink(),
+        'imageUrl' => get_the_post_thumbnail_url(0, 'professor-landscape'),
+      ));
+    }
+    elseif ($post_type === 'event') {
+      $event_date = new DateTime(get_field('event_date'));
+      array_push($results['events'], array(
+        'title' => get_the_title(),
+        'permalink' => get_the_permalink(),
+        'day' => $event_date->format('d'),
+        'month' => $event_date->format('M'),
+        'excerpt' => has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 18)
+      ));
+    }
     else {
       array_push($results[$post_type . 's'], array(
         'title' => get_the_title(),
