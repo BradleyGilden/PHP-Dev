@@ -84,42 +84,4 @@
     }
 
     add_action('rest_api_init', 'custom_api_fields');
-
-    function redirect_subs_to_frontend() {
-        $currentUser = wp_get_current_user();
-        if (count($currentUser->roles) == 1 && $currentUser->roles[0] === 'subscriber') {
-            wp_redirect(site_url('/'));
-            exit;
-        }
-    }
-    add_action('admin_init', 'redirect_subs_to_frontend');
-
-    // remove editor bar from site for non admins
-
-    function remove_subs_admin_bar() {
-        $currentUser = wp_get_current_user();
-        if (count($currentUser->roles) == 1 && $currentUser->roles[0] === 'subscriber') {
-            show_admin_bar(false);
-        }
-    }
-    add_action('wp_loaded', 'remove_subs_admin_bar');
-
-    // change url of wordpress icon
-
-    function custom_header_url() {
-        return esc_url(site_url("/"));
-    }
-
-    add_filter('login_headerurl', 'custom_header_url');
-
-    // custom css for login page
-
-    function login_css() {
-        wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
-        wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-        wp_enqueue_style('main_styles', get_theme_file_uri('/build/style-index.css'));
-        wp_enqueue_style('extra_styles', get_theme_file_uri('/build/index.css'));
-    }
-
-    add_action('login_enqueue_scripts', 'login_css');
 ?>
