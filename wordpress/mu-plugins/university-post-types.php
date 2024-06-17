@@ -44,8 +44,9 @@ function uni_post_types() {
   // Custom Post Tye: Professor
   register_post_type('professor', array(
     'show_in_rest' => true,
-    'supports' => array('title', 'editor', 'thumbnail'),
-    'public' => true,
+    'supports' => array('title', 'editor'),
+    'public' => false,  // declare a private post type, (per user)
+    'show_ui' => true, // to show in dashboard since it's a private post type
     'labels' => array(
       'name' => 'Professors',
       'add_new' => 'Add New Professor',
@@ -56,6 +57,23 @@ function uni_post_types() {
       'new_item' => 'New Professor'
     ),
     'menu_icon' => 'dashicons-welcome-learn-more'
+  ));
+
+  // Custom Post Tye: Note
+  register_post_type('note', array(
+    'show_in_rest' => true,
+    'supports' => array('title', 'editor', 'thumbnail'),
+    'public' => true,
+    'labels' => array(
+      'name' => 'Notes',
+      'add_new' => 'Add New Note',
+      'add_new_item' => 'Add New Note',
+      'edit_item' => 'Edit Note',
+      'all_items' => 'All Notes',
+      'singular_name' => 'Note',
+      'new_item' => 'New Note'
+    ),
+    'menu_icon' => 'dashicons-welcome-write-blog'
   ));
 }
 
