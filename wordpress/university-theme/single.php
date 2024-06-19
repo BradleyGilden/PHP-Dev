@@ -16,7 +16,7 @@ while (have_posts()) :
           <p><?= the_content() ?></p>
       </div>
     </div>
-    <?php
+    <?php 
     get_footer();
     endwhile; 
     ?>

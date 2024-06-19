@@ -27,6 +27,10 @@ body {
   margin: 0;
 }
 
+.arrow {
+  cursor: default;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
